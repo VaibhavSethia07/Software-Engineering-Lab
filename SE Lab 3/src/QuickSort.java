@@ -1,18 +1,22 @@
-import java.util.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
 
 public class QuickSort {
 
 	private void quickSort(long nums[], int start, int end) {
 		if (start >= end)
 			return;
+
 		int p = partition(nums, start, end);
-		quickSort(nums, start, p-1);
+		quickSort(nums, start, p - 1);
 		quickSort(nums, p + 1, end);
 	}
 
 	private int partition(long nums[], int start, int end) {
-		int ind = start-1;
+		int ind = start - 1;
 
 		for (int i = start; i < end; i++) {
 			if (nums[i] <= nums[end]) {
@@ -38,6 +42,7 @@ public class QuickSort {
 		for (int i = 0; i < N; i++) {
 			out.write(nums[i] + " ");
 		}
+
 		out.close();
 	}
 
