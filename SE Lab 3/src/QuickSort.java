@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -49,8 +50,8 @@ public class QuickSort {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int N = Integer.parseInt(br.readLine());
-		long nums[] = Arrays.stream(br.readLine().split("\\s+")).mapToLong(Long::parseLong).toArray();
+		int N = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
+		long nums[] = Arrays.stream(BoundedLineReader.readLine(br, 5_000_000).split("\\s+")).mapToLong(Long::parseLong).toArray();
 
 		QuickSort qs = new QuickSort();
 		qs.quickSort(nums, 0, N - 1);
