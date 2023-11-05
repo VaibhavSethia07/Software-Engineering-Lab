@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.util.*;
 import java.io.*;
 public class MergeSort {
@@ -55,8 +56,8 @@ public class MergeSort {
 	public static void main(String[] args) throws Exception {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int N = Integer.parseInt(br.readLine());
-		long nums[] = Arrays.stream(br.readLine().split("\\s+")).mapToLong(Long::parseLong).toArray();
+		int N = Integer.parseInt(BoundedLineReader.readLine(br, 5_000_000));
+		long nums[] = Arrays.stream(BoundedLineReader.readLine(br, 5_000_000).split("\\s+")).mapToLong(Long::parseLong).toArray();
 		
 		MergeSort ms = new MergeSort();
 		ms.mergeSort(nums, 0, N-1);
